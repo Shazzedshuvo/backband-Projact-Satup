@@ -1,12 +1,19 @@
-// getting-started.js
 import mongoose from "mongoose";
 import app from "./index.js";
-const PORT = process.env.PORT || 4000;
-main().catch((err) => console.log(err));
+import { config } from "dotenv";
+config(); // Load .env
+const PORT = process.env.PORT || 5000;
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/test");
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+    try {
+        await mongoose.connect(process.env.DATABASE_URL);
+        console.log("📦 MongoDB Connected Successfully");
+        app.listen(PORT, () => {
+            console.log(` Server running on port ${PORT}`);
+        });
+    }
+    catch (error) {
+        console.log(" Database connection failed:", error);
+    }
 }
+main();
 //# sourceMappingURL=sarver.js.map
