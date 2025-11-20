@@ -1,0 +1,1 @@
+{"version":3,"file":"user.intarface.d.ts","sourceRoot":"","sources":["../../../../src/app/moddeuls/user/user.intarface.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,KAAK;IAEpB,IAAI,EAAE,MAAM,CAAC;IACb,KAAK,EAAE,MAAM,CAAC;IACd,QAAQ,EAAE,MAAM,CAAC;IAEjB,IAAI,EAAE,SAAS,GAAG,QAAQ,GAAG,OAAO,CAAC;CAGtC"}

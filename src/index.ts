@@ -1,6 +1,9 @@
 import express from "express";
 import type { Application, Request, Response } from "express";
 import cors from "cors";
+import { CourseRouter } from "./app/moddeuls/Course/course.routs.js";
+import { LoginRouter } from "./app/moddeuls/user/user.routs.js";
+import { StudentRouter } from "./app/moddeuls/student/student.route.js";
 
 const app: Application = express();
 
@@ -12,5 +15,9 @@ app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World! I am Shuvo");
 });
+
+app.use("/api/course/", CourseRouter);
+app.use("/api/", LoginRouter);
+app.use("/api/", StudentRouter);
 
 export default app;

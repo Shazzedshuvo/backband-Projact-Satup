@@ -1,5 +1,8 @@
 import express from "express";
 import cors from "cors";
+import { CourseRouter } from "./app/moddeuls/Course/course.routs.js";
+import { LoginRouter } from "./app/moddeuls/user/user.routs.js";
+import { StudentRouter } from "./app/moddeuls/student/student.route.js";
 const app = express();
 // Middlewares
 app.use(cors());
@@ -8,5 +11,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send("Hello World! I am Shuvo");
 });
+app.use("/api/course/", CourseRouter);
+app.use("/api/", LoginRouter);
+app.use("/api/", StudentRouter);
 export default app;
 //# sourceMappingURL=index.js.map
