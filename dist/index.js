@@ -3,6 +3,7 @@ import cors from "cors";
 import { CourseRouter } from "./app/moddeuls/Course/course.routs.js";
 import { LoginRouter } from "./app/moddeuls/user/user.routs.js";
 import { StudentRouter } from "./app/moddeuls/student/student.route.js";
+import { AuthROutar } from "./app/moddeuls/Auth/auth.route.js";
 const app = express();
 // Middlewares
 app.use(cors());
@@ -14,5 +15,6 @@ app.get("/", (req, res) => {
 app.use("/api/course/", CourseRouter);
 app.use("/api/", LoginRouter);
 app.use("/api/", StudentRouter);
+app.use("/api/auth/", AuthROutar);
 export default app;
 //# sourceMappingURL=index.js.map
