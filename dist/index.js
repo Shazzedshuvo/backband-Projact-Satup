@@ -15,6 +15,6 @@ app.get("/", (req, res) => {
 app.use("/api/course/", CourseRouter);
 app.use("/api/", LoginRouter);
 app.use("/api/", StudentRouter);
-app.use("/api/auth/", AuthROutar);
+app.use("/api/", AuthROutar);
 export default app;
 //# sourceMappingURL=index.js.map

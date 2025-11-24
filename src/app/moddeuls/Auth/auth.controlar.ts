@@ -2,13 +2,14 @@ import type { Request, Response } from "express";
 import type { IAuth } from "./auth.intarfase.js";
 import { AuthModel } from "./auth.model.js";
 import bcrypt from "bcryptjs";
+import jwt, { type Secret } from "jsonwebtoken";
 
 const singup = async (req: Request, res: Response) => {
-  const { name, password, phone, email } = req.body as IAuth;
+  const { name, password, phone, email,role } = req.body as IAuth;
 
   try {
     // Validation
-    if (!name || !password || !phone || !email) {
+    if (!name || !password || !phone || !email||!role) {
       return res.status(400).json({
         success: false,
         message: "Please fill all fields",
@@ -86,6 +87,15 @@ const login = async (req: Request, res: Response) => {
         message: " Invalid email and password",
       });
     }
+
+    // const payload = {
+    //   id: user._id,
+    //   role: user.role,
+    // };
+
+    // const token = jwt.sign(payload,process.env.JWT_CODE as Secret,{
+    //   expiresIn:"7d"
+    // });
 
     // jodi condidion ture hoi thahole aitate dokbe
     return res.status(201).json({

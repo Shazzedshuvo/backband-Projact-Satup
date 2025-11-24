@@ -1,10 +1,11 @@
 import { AuthModel } from "./auth.model.js";
 import bcrypt from "bcryptjs";
+import jwt, {} from "jsonwebtoken";
 const singup = async (req, res) => {
-    const { name, password, phone, email } = req.body;
+    const { name, password, phone, email, role } = req.body;
     try {
         // Validation
-        if (!name || !password || !phone || !email) {
+        if (!name || !password || !phone || !email || !role) {
             return res.status(400).json({
                 success: false,
                 message: "Please fill all fields",
@@ -69,6 +70,13 @@ const login = async (req, res) => {
                 message: " Invalid email and password",
             });
         }
+        // const payload = {
+        //   id: user._id,
+        //   role: user.role,
+        // };
+        // const token = jwt.sign(payload,process.env.JWT_CODE as Secret,{
+        //   expiresIn:"7d"
+        // });
         // jodi condidion ture hoi thahole aitate dokbe
         return res.status(201).json({
             success: true,
